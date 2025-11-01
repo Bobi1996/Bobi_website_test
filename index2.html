@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>💶Евро-Лева Калкулатор📱</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.10.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.10.3/core.js"></script>
+    <a href='index1.html' >🌐</a>
+</head>
+<body>
+     <img src="euro.jpg" alt="euro.jpg">
+     <h1>💶Евро-Лева Калкулатор📱</h1>
+     <p>евро в лева</p>
+     <input type="text" id="въведете сума в евро" placeholder="Моля, въведете сума!" />
+     <button py-click="bg_euro_convert">Convert</button>
+     <div id="сума резултат в евро"></div>
+
+     <p>лева в евро</p>
+     <input type="text" id="въведете сума в лева" placeholder="Моля, въведете сума!" />
+     <button py-click="bg_bgn_convert">Convert</button>
+     <div id="сума резултат в лева"></div>
+
+     <script type="py">
+from js import document
+
+def bg_euro_convert(num_input1):
+     try:
+         input_euro = document.getElementById("въведете сума в евро")
+         output_euro = document.getElementById("сума резултат в евро")
+
+         num_input1 = float(input_euro.value)
+         result = num_input1 * 1.95583
+
+         output_euro.innerText = f"{result:.2f} Лева"
+         print(num_input1, "=", result)
+     except ValueError:
+         output_euro.innerText = "⚠️ Моля, използвайте само числа!"
+
+
+def bg_bgn_convert(num_input1):
+     try:
+         input_bgn = document.getElementById("въведете сума в лева")
+         output_bgn = document.getElementById("сума резултат в лева")
+
+         num_input1 = float(input_bgn.value)
+         result = num_input1 * 0.51
+
+         output_bgn.innerText = f"{result:.2f} Евро €"
+         print(num_input1, "=", result)
+
+     except ValueError:
+         output_bgn.innerText = "⚠️ Моля, използвайте само числа!"
+
+
+     </script>
+
+</body>
+</html>
